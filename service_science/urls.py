@@ -26,4 +26,5 @@ urlpatterns = [
     # url(r'^my_browsing_history/', include('my_browsing_history.urls')),
     # url(r'^my_comments/', include('my_comments.urls')),
     # url(r'^my_reward/', include('my_reward.urls')),
+    
 ]
