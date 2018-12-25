@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include, url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # url(r'^administrator/', include('administrator.urls')),
+    # url(r'^', include('homepage.urls')),
+    # url(r'^log_in/', include('log_in.urls')),
+    # url(r'^modify_personal_info/', include('modify_personal_info.urls')),
+    # url(r'^my_browsing_history/', include('my_browsing_history.urls')),
+    # url(r'^my_comments/', include('my_comments.urls')),
+    # url(r'^my_reward/', include('my_reward.urls')),
 ]
