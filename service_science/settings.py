@@ -31,6 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'log_in.apps.LogInConfig',
+    'my_comments.apps.MyCommentsConfig',
+    'my_reward.apps.MyRewardConfig',
+    'my_browsing_history.apps.MyBrowsingHistoryConfig',
+    'advertisement.apps.AdvertisementConfig',
+    'topup.apps.TopupConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,11 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'administrator',
     'homepage',
-    'log_in',
+     # 'log_in',
     'modify_personal_info',
-    'my_browsing_history',
-    'my_comments',
-    'my_reward'
+    # 'my_browsing_history',
+    # 'my_comments',
+    # 'my_reward'
 ]
 
 MIDDLEWARE = [
@@ -85,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'service_science',
         'USER': 'root',
-        'PASSWORD': 'kudo8023ai',
+        'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -127,7 +133,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
+# STATIC_ROOT = os.path.join(BASE_DIR, 'templates/static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'image')
