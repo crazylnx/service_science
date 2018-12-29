@@ -1,31 +1,131 @@
 <!DOCTYPE html>
-<html>
-   <head>
-		<meta charset="utf-8">
-		<title>Welcome</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- 引入 Bootstrap -->
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<html lang="zh-CN" manifest="cache.manifest">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>登陆洽闻</title>
+    </head>
 
-		<!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
-		<!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-			<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-		<![endif]-->
-   </head>
-   <body>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
-		<div class="jumbotron">
-			<h1>Welcome!</h1>
-			<p>来了洽闻，你就是世界上最靓的崽www</p>
-			<p><a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a></p>
-		</div>   		
+    <body>
 
-		<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<!-- 包括所有已编译的插件 -->
-		<script src="js/bootstrap.min.js"></script>
-   </body>
+        <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="img/examples/slide-01.jpg" alt="">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>欢迎来到洽闻</h1>
+                            <p class="lead">你是全世界最靓的崽</p>
+                            <a class="btn btn-large btn-primary" href="#">马上注册</a>
+                        </div>            
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/examples/slide-02.jpg" alt="">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>欢迎来到洽闻</h1>
+                            <p class="lead">你是全世界最靓的崽</p>
+                            <a class="btn btn-large btn-primary" href="#">马上注册</a>
+                        </div>            
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="img/examples/slide-03.jpg" alt="">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>欢迎来到洽闻</h1>
+                            <p class="lead">你是全世界最靓的崽</p>
+                            <a class="btn btn-large btn-primary" href="#">马上注册</a>
+                        </div>            
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>
+        <div class="container-login">
+           <form class="form-signin">
+            <h2 class="form-signin-heading">请登录：</h2>
+            <input type="text" class="input-block-level" placeholder="用户名">
+            <input type="password" class="input-block-level" placeholder="密码">
+            <label class="checkbox">
+              <input type="checkbox" value="remember-me"> 记住我
+            </label>
+            <button class="btn btn-large btn-primary" type="submit">登录</button>
+          </form>
+      </div> 
+     <article class="container">
+
+    <section class="row" id="apple">
+       		<div class="span12 panel relative" style="display: block;">
+            	<img src="img/ribbon-apple.png" class="ribbon-apple">
+            	<div class="row">
+                    <div class="span6">
+                    	<img src="img/mockedup-news.png" class="ipad-news">
+                    </div>
+                    
+                    <div class="span6">
+                    <div class="padding-huge">
+                        <h1>Apple</h1>
+                        <p class="wo">我对 Apple 产品的热爱近乎狂热，是一名真正的铁杆果粉。在 Steve Jobs 时代，就拥有近乎全系列的 Apple 产品。Apple 不但蕴含着一种高贵的灵魂，还透射出一种独特的魅力。我通宵排队 14 小时，买到了中国地区的第一台 iPad 2；之后又为了买 iPhone 4S 排队足足 20 小时。后来还被腾讯网评为“超级果粉”第一名。</p>
+                        <br>
+                        <a target="_blank" href="http://www.google.com/hostednews/afp/article/ALeqM5h9IrITObDmUmYjG8_3iAwiPwrwCQ?docId=CNG.ce7c362a719710baba258bff00b37376.721" class="visible-desktop">相关新闻报道 »</a>
+                    </div>
+    			</div>
+    		</div>
+        </div>
+        </section>
+    <section class="row" id="contact">
+        	<div class="span12 panel" style="display: block;">
+            	<div class="row">
+                    <div class="span12">
+                    	<div class="padding-large">
+                        	<h1>联系</h1>
+                            <div class="muiti-contact">
+                                <span class="email"><email title="" data-toggle="tooltip" data-original-title="Email">https://blog</email><at class="">.csdn.</at><sns title="" data-toggle="tooltip" class="" data-original-title="社交网络">net</sns><web title="个人网站" data-toggle="tooltip">/Akino_Rito</web></span>
+                                <!--[if lt IE 9]>
+                                <p class="text-warning">当前浏览器不支持该模块的交互效果，无法动态展示联系方式，建议换用更高级的浏览器。</p>
+                                <p class="text-info">Twitter, Instagram, Path, 新浪微博、腾讯微博和微信的名称为 @dandyweng</p>
+                                <![endif]-->
+                            </div>
+                        </div>
+                	</div>
+                    
+                    <div class="span12">
+                    	<div class="padding-large">
+                        	<div class="sns">
+                                <div class="sns-container">
+                                    <a target="_blank" href="javascript:;"><div title="暂时保密" data-toggle="tooltip" class="sns-icon" id="icon-facebook" data-original-title="Facebook"><img src="img/facebook.png"></div></a>
+                                    <a target="_blank" href="javascript:;"><div title="暂时保密" data-toggle="tooltip" class="sns-icon" id="icon-twitter" data-original-title="Twitter"><img src="img/twitter.png"></div></a>
+                                    <a target="_blank" href="javascript:;"><div title="暂时保密" data-toggle="tooltip" class="sns-icon" id="icon-instagram" data-original-title="Instagram"><img src="img/instagram.png"></div></a>
+                                    <a target="_blank" href="javascript:;"><div title="暂时保密" data-toggle="tooltip" class="sns-icon" id="icon-path" data-original-title="Path"><img src="img/path.png"></div></a>
+                                </div>
+                                <div class="sns-container">              
+                                    <a target="_blank" href="javascript:;"><div title="新浪微博 暂时保密" data-toggle="tooltip" class="sns-icon" id="icon-sinaweibo"><img src="img/SinaWeibo.png"></div></a>
+                                    <a target="_blank" href="http://t.qq.com/tuyingshuzhu"><div title="腾讯微博" data-toggle="tooltip" class="sns-icon" id="icon-tencentweibo"><img src="img/TencentWeibo.png"></div></a>
+                                    <a target="_blank" href="javascript:;"><div title="微信 暂时保密" data-toggle="tooltip" class="sns-icon" id="icon-wechat"><img src="img/wechat.png"></div></a>
+                                    <a target="_blank" href="javascript:;"><div title="QQ 暂时保密" data-toggle="tooltip" class="sns-icon" id="icon-qq"><img src="img/qq.png"></div></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    			</div>
+            </div>
+        </section>
+        </article>
+
+        <div class="container marketing">
+          <footer>
+            <p class="pull-right"><a href="#">操作</a></p>
+            <p>&copy; 洽闻. &middot; <a href="#">你会变瘦的</a> &middot; <a href="#">洽闻开发团队</a></p>
+          </footer>    
+        </div>
+
+    </body>
 </html>
