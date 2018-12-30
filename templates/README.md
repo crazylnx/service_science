@@ -8,6 +8,10 @@ base.html和components.html是在实际使用中不会用到的页面，但是�
 
 login.html 登陆页面
 
+Homepage.html 首页
+
+inner_Homepage.html 内嵌在Homepage.html中的一个子页面
+
 IBrowsed.html 我浏览过
 
 inner_IBrowser.html 内嵌在IBrowsed.html中的一个子页面
