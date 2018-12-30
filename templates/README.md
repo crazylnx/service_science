@@ -19,3 +19,5 @@ inner_IBrowser.html 内嵌在IBrowsed.html中的一个子页面
 MyComments.html 我的评论
 
 inner_MyComments.html 内嵌在MyComments.html中的一个子页面
+
+article_single.html 查看全文（包括标题、回答完整内容、评论、发表评论）
