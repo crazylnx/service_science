@@ -6,7 +6,7 @@ from homepage.models import *
 
 # 登陆界面
 def login_view(request):
-    return render(request,'login.html')
+    return render(request, 'log_in/login.html')
 
 #注册界面@todo
 def register_view(request):
@@ -24,7 +24,7 @@ def login(request):
         context.update(imagePath=aUser.user_image)
         context.update(username=aUser.user_nickname)
         context.update(categories=aCategory)
-        return render(request,'Homepage.html',context)
+        return render(request, 'homepage/Homepage.html', context)
     except user.DoesNotExist:
         return redirect('login')
 

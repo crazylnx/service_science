@@ -9,15 +9,15 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Le styles -->
-		<link href="assets/css/bootstrap.css" rel="stylesheet">
-		<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-		<link href="assets/css/style.css" rel="stylesheet">
-		<link href="assets/css/font-awesome.min.css" rel="stylesheet"> 
-		<link href="assets/css/social.css" rel="stylesheet"> 
-		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-		<link href="assets/css/prettyPhoto.css" rel="stylesheet" type="text/css" />
-		<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
-		<link href="assets/css/style.css" rel="stylesheet" id="colors"
+		<link href="../../static/assets/css/bootstrap.css" rel="stylesheet">
+		<link href="../../static/assets/css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="../../static/assets/css/style.css" rel="stylesheet">
+		<link href="../../static/assets/css/font-awesome.min.css" rel="stylesheet">
+		<link href="../../static/assets/css/social.css" rel="stylesheet">
+		<link href="../../static/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+		<link href="../../static/assets/css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+		<link href="../../static/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+		<link href="../../static/assets/css/style.css" rel="stylesheet" id="colors"
 	</head>
 
 	<body>
@@ -25,7 +25,7 @@
 		<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<!-- 包括所有已编译的插件 -->
-		<script src="js/bootstrap.min.js"></script>
+		<script src="../../static/js/bootstrap.min.js"></script>
 
 		<!-- Navigation Bar -->
 		<nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation">
@@ -45,7 +45,7 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="active">
-							<a href="{% url 'homepage' %}">
+							<a href="#">
 								<span class="glyphicon glyphicon-home">首页</span>
 								<span class="sr-only">(current)</span>
 							</a>
@@ -77,7 +77,7 @@
 										<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
 											<li>
 												<img src="头像.png" class="img-circle" alt="用户头像">
-												<a tabindex="-1" href="#">{{ username }}</a>
+												<a tabindex="-1" href="#">UserName</a>
 											</li>
 											<li class="divider"></li>
 											<li><a tabindex="-1" href="#">关注</a></li>
@@ -100,17 +100,10 @@
 
 				<!-- 中部： main body -->
 				<div class="col-md-6" role="main">
-				    <div class="input-group">
-						<input type="text" class="form-control" aria-label="输入提示">
-						<div class="input-group-btn">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">搜索 <span class="button"></span></button>
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">提问<span class="button"></span></button>
-				      	</div><!-- /btn-group -->
-				    </div><!-- /input-group -->
 
 				    <!-- 问题和回答部分内容 -->
 				    <div class="row-fluid blog">
-					    <iframe src="inner_Homepage.html" frameBorder="0" width="600" height="2400" scrolling="no"></iframe>
+					    <iframe src="inner_IBrowsed.html" frameBorder="0" width="600" height="2400" scrolling="no"></iframe>
 					</div>
 
 				</div> <!-- 中部： main body -->
@@ -126,20 +119,16 @@
 								<h5 class="standart-h3title"><span>Categories</span></h5>
 							</div>
 					        <ul class="l_tinynav2 widget-archive" id="nav2">
-                                {% for foo in categories %}
-                                    <li><a href="#" style="margin-left:0px;">{{ foo.category_name }}</a></li>
-                                {% endfor %}
-                                
-
-{#								<li><a href="# " style="margin-left:0px;">GRE</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">TOEFL</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">再要你命3000</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">计算机</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">脱发</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">霸王</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">杨幂</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">国家地理</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">可爱</a></li>				  #}
+								<li><a href="#" style="margin-left:0px;">特朗普</a></li>
+								<li><a href="# " style="margin-left:0px;">GRE</a></li>
+								<li><a href="#" style="margin-left:0px;">TOEFL</a></li>
+								<li><a href="#" style="margin-left:0px;">再要你命3000</a></li>
+								<li><a href="#" style="margin-left:0px;">计算机</a></li>
+								<li><a href="#" style="margin-left:0px;">脱发</a></li>
+								<li><a href="#" style="margin-left:0px;">霸王</a></li>
+								<li><a href="#" style="margin-left:0px;">杨幂</a></li>
+								<li><a href="#" style="margin-left:0px;">国家地理</a></li>
+								<li><a href="#" style="margin-left:0px;">可爱</a></li>				  
 							</ul>
 				        </div>
 
@@ -182,6 +171,6 @@
 		<span id="toTopHover" style="opacity: 0;"></span>
 	</a>
 
-	<script src="assets/js/jquery.ui.totop.js" type="text/javascript"></script>
+	<script src="../../static/assets/js/jquery.ui.totop.js" type="text/javascript"></script>
 	</body>
 </html>

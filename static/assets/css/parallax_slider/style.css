@@ -6,7 +6,7 @@
 	margin: 30px auto;
 	overflow: hidden;
 	max-width:1350px;
-	background: transparent url(../../../assets/img/transparent.png) no-repeat 0% 0%;
+	background: transparent url(../../img/transparent.png) no-repeat 0% 0%;
 	-webkit-transition: background-position 1.4s ease-in-out 0.3s;
 	-moz-transition: background-position 1.4s ease-in-out 0.3s;
 	-o-transition: background-position 1.4s ease-in-out 0.3s;
@@ -217,7 +217,7 @@ background: rgba(0,0,0, .8);
 	height: 20px;
 	top: 15px;
 	left: 10px;
-	background: transparent url(../../../assets/img/bg_direction_nav.png) no-repeat 0 0;
+	background: transparent url(../../img/bg_direction_nav.png) no-repeat 0 0;
 	
 }
 .da-arrows span:hover:after{
