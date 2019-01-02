@@ -8,10 +8,10 @@ def MyComments(request):
     elif request.method == 'POST':
         pass
     else:
-        return render(request,'my_comments/MyComments.html')
+        return render(request, 'my_comments/MyComments.html')
 
 def MyCommentsInner(request):
-    return render(request,'my_comments/inner_MyComments.html')
+    return render(request, 'my_comments/inner_MyComments.html')
 
 # def ShowQuestion(request,questionId):
 #     if not request.session.has_key('userName'):

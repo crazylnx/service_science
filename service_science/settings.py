@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'service_science',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': '000000',
         'HOST': 'localhost',
         'PORT': '3306',
     }

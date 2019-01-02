@@ -86,8 +86,8 @@
 											<li><a tabindex="-1" href="#">余额</a></li>
 											<li class="divider"></li>
 											<li><a tabindex="-1" href="{% url 'my_comments:mycomments' %}">我的关注</a></li>
-											<li><a tabindex="-1" href="M">我的浏览</a></li>
-											<li><a tabindex="-1" href="#">我的提问</a></li>
+											<li><a tabindex="-1" href="{% url 'my_browsing_history:mybrowsinghistory' %}">我的浏览</a></li>
+											<li><a tabindex="-1" href="{% url 'show_question:showquestion' %}">我的提问</a></li>
 											<li><a tabindex="-1" href="#">我的打赏</a></li>
 										</ul>
 									</div>
