@@ -85,7 +85,7 @@
 											<li><a tabindex="-1" href="#">发帖数量</a></li>
 											<li><a tabindex="-1" href="#">余额</a></li>
 											<li class="divider"></li>
-											<li><a tabindex="-1" href="#">我的关注</a></li>
+											<li><a tabindex="-1" href="" style="cursor:not-allowed">我的关注</a></li>
 											<li><a tabindex="-1" href="#">我的浏览</a></li>
 											<li><a tabindex="-1" href="#">我的提问</a></li>
 											<li><a tabindex="-1" href="#">我的打赏</a></li>
@@ -103,7 +103,7 @@
 					
 				    <!-- 问题和回答部分内容 -->
 				    <div class="row-fluid blog">
-					    <iframe src="inner_MyComments.html" frameBorder="0" width="600" height="2400" scrolling="no"></iframe>
+					    <iframe src="{% url 'my_comments:mycommentsinner' %}" frameBorder="0" width="600" height="2400" scrolling="no"></iframe>
 					</div>
 
 				</div> <!-- 中部： main body -->

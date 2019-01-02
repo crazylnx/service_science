@@ -26,6 +26,7 @@ def login(request):
             try:
                 aUser = user.objects.get(user_name=data['username'], user_password=data['password'])
                 request.session['userName'] = aUser.user_name
+                request.session.set_expiry(0)
                 return HttpResponseRedirect('homepage/')
             except user.DoesNotExist:
                 form = LoginForm()

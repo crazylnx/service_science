@@ -45,7 +45,7 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="active">
-							<a href="{% url 'homepage' %}">
+							<a href="{% url 'homepage1:homepage' %}">
 								<span class="glyphicon glyphicon-home">首页</span>
 								<span class="sr-only">(current)</span>
 							</a>
@@ -85,8 +85,8 @@
 											<li><a tabindex="-1" href="#">发帖数量</a></li>
 											<li><a tabindex="-1" href="#">余额</a></li>
 											<li class="divider"></li>
-											<li><a tabindex="-1" href="#">我的关注</a></li>
-											<li><a tabindex="-1" href="#">我的浏览</a></li>
+											<li><a tabindex="-1" href="{% url 'my_comments:mycomments' %}">我的关注</a></li>
+											<li><a tabindex="-1" href="M">我的浏览</a></li>
 											<li><a tabindex="-1" href="#">我的提问</a></li>
 											<li><a tabindex="-1" href="#">我的打赏</a></li>
 										</ul>
@@ -110,7 +110,7 @@
 
 				    <!-- 问题和回答部分内容 -->
 				    <div class="row-fluid blog">
-					    <iframe src="inner_Homepage.html" frameBorder="0" width="600" height="2400" scrolling="no"></iframe>
+					    <iframe src='{% url 'homepage1:homepageinner' %}' frameBorder="0" width="600" height="2400" scrolling="no"></iframe>
 					</div>
 
 				</div> <!-- 中部： main body -->
