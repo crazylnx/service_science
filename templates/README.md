@@ -30,6 +30,8 @@ article_single.html 查看全文（包括标题、回答完整内容、评论、
 
 Change_Personal_Info.html 修改用户信息
 
+Show_Personal_Info.html 查看用户个人信息
+
 recharge.html 充值
 
 
@@ -49,6 +51,8 @@ recharge.html 充值
 查看全文
 
 修改用户信息
+
+查看用户个人信息
 
 充值
 
