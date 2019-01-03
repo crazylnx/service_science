@@ -34,6 +34,8 @@ Show_Personal_Info.html 查看用户个人信息
 
 recharge.html 充值
 
+signup.html 注册
+
 
 
 ## 现完成功能
@@ -55,5 +57,7 @@ recharge.html 充值
 查看用户个人信息
 
 充值
+
+注册
 
 404
