@@ -14,6 +14,10 @@ Homepage.html 首页
 
 inner_Homepage.html 内嵌在Homepage.html中的一个子页面
 
+IAsked.html 我的提问
+
+inner_IAsked.html 内嵌在IAsked.html中的一个子页面
+
 IBrowsed.html 我浏览过
 
 inner_IBrowser.html 内嵌在IBrowsed.html中的一个子页面
@@ -31,6 +35,8 @@ article_single.html 查看全文（包括标题、回答完整内容、评论、
 登陆页面
 
 首页
+
+我的提问
 
 我的评论
 
