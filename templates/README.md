@@ -28,6 +28,8 @@ inner_MyComments.html 内嵌在MyComments.html中的一个子页面
 
 article_single.html 查看全文（包括标题、回答完整内容、评论、发表评论）
 
+recharge.html 充值
+
 
 
 ## 现完成功能
@@ -43,5 +45,7 @@ article_single.html 查看全文（包括标题、回答完整内容、评论、
 我的浏览
 
 查看全文
+
+充值
 
 404
