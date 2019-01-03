@@ -101,12 +101,17 @@
 				<!-- 中部： main body -->
 				<div class="col-md-6" role="main">
 				    <div class="input-group">
-						<input type="text" class="form-control" aria-label="输入提示">
-						<div class="input-group-btn">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">搜索 <span class="button"></span></button>
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">提问<span class="button"></span></button>
-				      	</div><!-- /btn-group -->
+                        <form class="form-signin" action="{% url 'homepage1:search' %}" method="POST">
+						    <input type="text" class="form-control" aria-label="输入提示">
+                            {{ form }}
+						    <div class="input-group-btn">
+							    <button type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">搜索 <span class="button"></span></button>
+							    <button type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">提问<span class="button"></span></button>
+                            </div><!-- /btn-group -->
+                        </form>
 				    </div><!-- /input-group -->
+
+
 
 				    <!-- 问题和回答部分内容 -->
 				    <div class="row-fluid blog">
@@ -123,11 +128,11 @@
 						
 					  	<div class="row-fluid">
 							<div class="line2 center">
-								<h5 class="standart-h3title"><span>Categories</span></h5>
+								<h5 class="standart-h3title"><span>最多评论的问题</span></h5>
 							</div>
 					        <ul class="l_tinynav2 widget-archive" id="nav2">
                                 {% for foo in categories %}
-                                    <li><a href="#" style="margin-left:0px;">{{ foo.category_name }}</a></li>
+                                    <li><a href="{% url 'my_comments:showquestion' foo.id %}" style="margin-left:0px;">{{ foo.question_name }}</a></li>
                                 {% endfor %}
                                 
 

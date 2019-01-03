@@ -20,7 +20,6 @@ def login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            aCategory = Category.objects.all()
             data = form.cleaned_data
             print(data['password'])
             try:

@@ -1,3 +1,5 @@
+from itertools import count
+
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.db.models import Count
@@ -6,7 +8,7 @@ from log_in.models import *
 from log_in.forms import LoginForm
 from log_in.urls import *
 from my_comments.models import *
-
+from .forms import *
 def homepage_view(request):
     if not request.session.has_key('userName'):
         form = LoginForm()
@@ -16,17 +18,21 @@ def homepage_view(request):
         print(userName)
         try:
             aUser = user.objects.get(user_name=userName)
-            # try:
-            #     aquestion = question.objects.all()
-            #     count1 = question.objects.all().count()
-            #     for i in range(count1):
-            #         aquestion[i].comment_set.count()
-            #
-            # except question.DoesNotExist:
-            context = {}
-            context.update(imagePath=aUser.user_image)
-            context.update(username=aUser.user_nickname)
-            return render(request, 'homepage/Homepage.html', context)
+            try:
+                questionRecommendList = question.objects.annotate(num1=Count('comment')).order_by('-num1')
+                print(questionRecommendList[0].question_name)
+                context = {}
+                context.update(categories=questionRecommendList)
+                context.update(imagePath=aUser.user_image)
+                context.update(username=aUser.user_nickname)
+                return render(request, 'homepage/Homepage.html', context)
+            except question.DoesNotExist:
+
+                context = {}
+                context.update(categories='')
+                context.update(imagePath=aUser.user_image)
+                context.update(username=aUser.user_nickname)
+                return render(request, 'homepage/Homepage.html', context)
         except user.DoesNotExist:
             return HttpResponseRedirect('login')
 def HomepageInner(request):
@@ -50,3 +56,11 @@ def HomepageInner(request):
         return render(request, 'homepage/inner_Homepage.html', context)
         # return HttpResponse("nnnn")
 
+def Search(request):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+
+    else:
+        context = {}
+        print("hhhhhhhhhh")
+    return render(request, "show_question/article_single.html", context)
