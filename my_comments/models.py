@@ -13,3 +13,4 @@ class comment(models.Model):
     comment_question_id = models.ForeignKey(question, on_delete=models.CASCADE)
     comment_date = models.DateTimeField('date published')
     comment_content = models.CharField(max_length=5000)
+    comment_user = models.ForeignKey('log_in.user',on_delete=models.CASCADE)

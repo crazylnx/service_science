@@ -5,5 +5,5 @@ app_name='my_comments'
 urlpatterns = [
     path('MyComment/', MyComments, name='mycomments'),
     path('MyComment/Inner', MyCommentsInner, name='mycommentsinner'),
-    # path()
+    path('/homepage/question/<int:questionId>',ShowQuestion,name='showquestion')
 ]

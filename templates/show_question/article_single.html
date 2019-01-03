@@ -79,23 +79,20 @@
         <div class="span8">
           <div class="blog-post">
               <div class="">
-        		      <span class="label label-info label-xl span2 center"><span class="date-blog">29</span> <br>June </span>
-                  <div class="span10"><h2 class="standart-h2title"><a href="#">文章标题</a></h2></div>
+        		      <span class="label label-info label-xl span2 center"><span> <!--class="date-blog"-->{{ question.question_date |date:"Y-m-d "}}</span> </span>
+                  <div class="span10"><h2 class="standart-h2title"><a href="">{{ question.question_name }}</a></h2></div>
           
                   <p class="meta-blog clearfix">
       								<i class="icon-comment"></i>
-      								<a href="#">3 Comments</a>
-      								| <i class="icon-share"></i>
-      								<a href="#">39 Shares</a> | <i class="icon-user"></i> 
+      								<p>{{ commentCount }} Comments</p>
+      								 | <i class="icon-user"></i>
       								<a href="#">发帖人</a> | Tags: 
       								<a href="#"><span class="label label-info">脱发</span></a> 
       								<a href="#"><span class="label label-info">呵呵</span></a> 
       						</p>
               </div>
-              <p>过于头秃使我忧愁。</p> 
-      		    <p class="lead well main-color">我应该会长头发的吧。</p>
-              <p>我就随便写个 <code>using namespace cv;</code> 也想文体两开花。</p>
-              <blockquote><p> 不知道说什么好。 </p><small>我好可爱 <cite title="Source Title">么的图片</cite></small></blockquote>
+              <p class="lead well main-color">{{ question.question_name }}</p>
+              <blockquote><p>{{ question.question_content }} </p><!--<small>我好可爱 <cite title="Source Title">么的图片</cite></small>--></blockquote>
 		
           </div>
       
@@ -103,21 +100,21 @@
         			<div class="line2 center">
                   <h5 class="standart-h3title"><span>评论区</span></h5>
         		  </div>
-    			
-    			
-        			<ul class="media-list">
+    			<ul class="media-list">
+    			 {% for foo in  commentList %}
                   <li class="media">
                       <div class="media-body">
-                          <div class="media-heading comment-info"> Posted by <i class="fa-icon-user"></i> <a href="#">Anna Smith</a> <span>|</span> 25 apr 2019 <span>|</span> <i class="fa-icon-reply"></i> <a href="#">Reply</a></div>
-                          <p></p><p>要坚强，脱发不可怕。</p><p></p>
+                          <div class="media-heading comment-info"> Posted by <i class="fa-icon-user"></i> <a href="#">{{ foo.comment_user.user_name }}</a> <span>|</span> {{ foo.comment_date }} <span>|</span> <i class="fa-icon-reply"></i> <a href="#">Reply</a></div>
+                          <p>{{ foo.comment_content }}</p><p>
                       </div>
                   </li>
-                  <li class="media">
-                      <div class="media-body">
-                          <div class="media-heading comment-info"> Posted by <i class="fa-icon-user"></i> <a href="#">gaojunyi</a> <span>|</span> 25 apr 2019 <span>|</span> <i class="fa-icon-reply"></i> <a href="#">Reply</a></div>
-                          <p>人生苦短， 我用python</p>
-                      </div>
-                  </li>
+                 {% endfor %}comment
+{#                  <li class="media">#}
+{#                      <div class="media-body">#}
+{#                          <div class="media-heading comment-info"> Posted by <i class="fa-icon-user"></i> <a href="#">gaojunyi</a> <span>|</span> 25 apr 2019 <span>|</span> <i class="fa-icon-reply"></i> <a href="#">Reply</a></div>#}
+{#                          <p>人生苦短， 我用python</p>#}
+{#                      </div>#}
+{#                  </li>#}
               </ul>
     			
     		
@@ -126,27 +123,28 @@
           <h5 class="standart-h3title"><span>Post your comment</span></h5>
 		  </div>
 		  <!-- COMMENTS FORM -->
+
        <div class="well">
 				
-                      <form accept-charset="UTF-8"  method="POST" class="comments-form">
+                      <form accept-charset="UTF-8"  method="POST" class="comments-form" action="{% url 'my_comments:showquestion' question.id  %}">
 
-                       <p class="span3">
-                      <label for="comment-name"><strong>Name</strong> <span class="label">required</span></label>
-                      <input class="span12" type="text" name="name" placeholder="Name" value="" >
-                      </p>
+{#                       <p class="span3">#}
+{#                      <label for="comment-name"><strong>Name</strong> <span class="label">required</span></label>#}
+{#                      <input class="span12" type="text" name="name" placeholder="Name" value="" >#}
+{#                      </p>#}
+                        {% csrf_token %}
+{##}                   {{ form }}
+{#                      <p class="span3">#}
+{#                      <label for="comment-name"><strong>Email</strong></label>#}
+{#                      <input class="span12" type="text" name="name" placeholder="Email" value=""  required="" >#}
+{#                      </p>#}
+{##}
+{#                      <p class="span3">#}
+{#                      <label for="comment-name"><strong>Website</strong></label>#}
+{#                      <input class="span12" type="text" name="name" placeholder="Website" value="" id="comment-name" required="" >#}
+{#                      </p>#}
 
-                      <p class="span3">
-                      <label for="comment-name"><strong>Email</strong></label>
-                      <input class="span12" type="text" name="name" placeholder="Email" value=""  required="" >
-                      </p>
-
-                      <p class="span3">
-                      <label for="comment-name"><strong>Website</strong></label>
-                      <input class="span12" type="text" name="name" placeholder="Website" value="" id="comment-name" required="" >
-                      </p>
-
-                
-                    <textarea class="span12" id="new_message" name="new_message" placeholder="Type in your comment" rows="5" ></textarea>
+{#                    <textarea class="span12" id="new_message" name="new_message" placeholder="Type in your comment" rows="5" ></textarea>#}
                  
                     <button class="btn btn-info btn-large" type="submit">Post</button>
                 </form>

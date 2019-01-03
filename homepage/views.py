@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+from django.db.models import Count
 # Create your views here.
-from homepage.models import Category
 from log_in.models import *
 from log_in.forms import LoginForm
 from log_in.urls import *
@@ -14,13 +14,21 @@ def homepage_view(request):
     else:
         userName = request.session.get('userName')
         print(userName)
-        aUser = user.objects.get(user_name=userName)
-        aCategory = Category.objects.all()
-        context = {}
-        context.update(imagePath=aUser.user_image)
-        context.update(username=aUser.user_nickname)
-        context.update(categories=aCategory)
-        return render(request, 'homepage/Homepage.html', context)
+        try:
+            aUser = user.objects.get(user_name=userName)
+            # try:
+            #     aquestion = question.objects.all()
+            #     count1 = question.objects.all().count()
+            #     for i in range(count1):
+            #         aquestion[i].comment_set.count()
+            #
+            # except question.DoesNotExist:
+            context = {}
+            context.update(imagePath=aUser.user_image)
+            context.update(username=aUser.user_nickname)
+            return render(request, 'homepage/Homepage.html', context)
+        except user.DoesNotExist:
+            return HttpResponseRedirect('login')
 def HomepageInner(request):
     try:
         questionlist = question.objects.all()
