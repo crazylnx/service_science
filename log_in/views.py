@@ -41,9 +41,8 @@ def login(request):
                 aUser = user.objects.get(user_name=data['username'], user_password=data['password'])
                 request.session['userName'] = aUser.user_name
                 request.session.set_expiry(0)
-                form = SearchForm()
                 #return HttpResponseRedirect('homepage/')
-                return render(request, 'homepage/Homepage.html', {'form': form})
+                return render(request, 'homepage/Homepage.html', {'username': aUser.user_name})
             except user.DoesNotExist:
                 form = LoginForm()
                 return render(request, 'log_in/login.html', {'form': form})
