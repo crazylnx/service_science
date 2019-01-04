@@ -1,4 +1,5 @@
 from django import forms
+from log_in.models import *
 class LoginForm(forms.Form):
     username=forms.CharField(label='your username',max_length=20)
     password=forms.CharField(widget=forms.PasswordInput)
@@ -13,3 +14,8 @@ class RegisterForm(forms.Form):
             print('两次密码不一致')
             raise forms.ValidationError('两次密码不一致')
         return  password2
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if user.objects.filter(user_name=username):
+            raise forms.ValidationError('账号已存在')
+        return  username
