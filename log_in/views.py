@@ -1,18 +1,33 @@
 import base64
 
-from django.http import HttpResponseRedirect
+from django.core.files import File
+from django.core.files.base import ContentFile
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
+from django.core.files import images
 # Create your views here.
 from log_in.models import *
 from log_in.forms import LoginForm
+
 from homepage.models import *
 
 
 
-#注册界面@todo
+#注册界面
 def register_view(request):
-    pass
+    context={}
+    if request.method == 'POST':
+        img = request.FILES.get('img')
+        name = request.FILES.get('img').name
+        new_user=user(user_name='a',user_password='123456',user_image=img,user_nickname='kitty')
+        new_user.save()
+        context.update(user1=new_user)
+        print(name)
+        return render(request,'log_in/register.html',context)
+    else:
+        context.update(user='')
+        return render(request,'log_in/register.html',context)
 
 # 登陆页面，获取request的username和password，成功到Homepage.html,失败返回原来界面，并带参数data显示error
 @csrf_exempt

@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>register</title>
-{#    引入必要的cropper库，为上传头像做准备#}
+<!--    引入必要的cropper库，为上传头像做准备-->
     <script src="../../static/cropper/jquery.js"></script><!-- jQuery is required -->
     <script src="../../static/cropper/cropper.js"></script><!-- Cropper.js is required -->
     <link  href="../../static/cropper/cropper.css" rel="stylesheet">
     <script src="../../static/cropper/jquery-cropper.js"></script>
 </head>
 <body>
+<form method="POST" action="{% url 'rigister' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+<input type="file" class="crop-picker-file" id="inputImage" name="img" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">></div>
+<button type="submit">上传</button><br>
+
+         <img src="../{{ user1.user_image.url }}" />
+
+
+</form>
 
 </body>
 </html>
