@@ -24,7 +24,6 @@ def homepage_view(request):
                 context = {}
                 context.update(categories=questionRecommendList)
                 context.update(imagePath=aUser.user_image)
-                context.update(username=aUser.user_nickname)
                 return render(request, 'homepage/Homepage.html', context)
             except question.DoesNotExist:
 
@@ -49,6 +48,9 @@ def HomepageInner(request):
         # for foo in questionlist:
         #     commentCount = foo.comment_set.count()
         #    context.update(commentCount, commentCount)
+        form = SearchForm()
+        context.update(form=form)
+
         return render(request, 'homepage/inner_Homepage.html', context)
         # return HttpResponse("nnnn")
     except question.DoesNotExist:
@@ -57,10 +59,17 @@ def HomepageInner(request):
         # return HttpResponse("nnnn")
 
 def Search(request):
+    context = {}
+    print("进入search")
     if request.method == 'POST':
         form = SearchForm(request.POST)
-
-    else:
-        context = {}
-        print("hhhhhhhhhh")
-    return render(request, "show_question/article_single.html", context)
+        if form.is_valid():
+            data = form.cleaned_data
+            questionlist = question.objects.filter(question_name__icontains=data['KeyWord'])
+            context.update(questionlist=questionlist)
+            form = SearchForm()
+            context.update(form = form)
+            return render(request, 'homepage/inner_Homepage.html', context)
+    form = SearchForm()
+    context.update(form=form)
+    return render(request, "homepage/inner_Homepage.html", context)

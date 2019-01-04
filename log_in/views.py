@@ -8,8 +8,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.files import images
 # Create your views here.
 from log_in.models import *
-from log_in.forms import LoginForm
-
+from log_in.forms import *
+from homepage.forms import SearchForm
 from homepage.models import *
 
 
@@ -41,7 +41,9 @@ def login(request):
                 aUser = user.objects.get(user_name=data['username'], user_password=data['password'])
                 request.session['userName'] = aUser.user_name
                 request.session.set_expiry(0)
-                return HttpResponseRedirect('homepage/')
+                form = SearchForm()
+                #return HttpResponseRedirect('homepage/')
+                return render(request, 'homepage/Homepage.html', {'form': form})
             except user.DoesNotExist:
                 form = LoginForm()
                 return render(request, 'log_in/login.html', {'form': form})
@@ -53,20 +55,22 @@ def login(request):
 
 
 def register(request):
-    data = request.get_json()
-    print(data)
-    newUser = user()
-    if request.POST.get('user_name').strip():
-        newUser.user_name = request.POST.get('user_name').strip()
-    if request.POST.get('user_password').strip():
-        newUser.user_password = request.POST.get('user_password').strip()
-    if request.POST.get('user_money').strip():
-        newUser.user_money = request.POST.get('user_money').strip()
-    if request.POST.get('user_image').strip():
-        newUser.user_image = request.POST.get('user_image').strip()
-    if request.POST.get('user_nickname').strip():
-        newUser.user_nickname = request.POST.get('user_nickname').strip()
-    user.save()
+    if request.method == 'GET':
+        form = RegisterForm()
+        return render(request, 'log_in/signup.html', {'form':form})
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            print(data['username'])
+            newUser = user()
+            newUser.user_name = data['username']
+            newUser.user_password = data['password1']
+            newUser.save()
+            return redirect('login')
+        return render(request, 'log_in/signup.html', {'form':form})
+
+
 
 
 

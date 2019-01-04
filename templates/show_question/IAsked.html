@@ -45,7 +45,7 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="active">
-							<a href="{% url 'homepage1:homepage' %}">
+							<a href="#">
 								<span class="glyphicon glyphicon-home">首页</span>
 								<span class="sr-only">(current)</span>
 							</a>
@@ -77,7 +77,7 @@
 										<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
 											<li>
 												<img src="头像.png" class="img-circle" alt="用户头像">
-												<a tabindex="-1" href="#">{{ username }}</a>
+												<a tabindex="-1" href="#">UserName</a>
 											</li>
 											<li class="divider"></li>
 											<li><a tabindex="-1" href="#">关注</a></li>
@@ -85,9 +85,9 @@
 											<li><a tabindex="-1" href="#">发帖数量</a></li>
 											<li><a tabindex="-1" href="#">余额</a></li>
 											<li class="divider"></li>
-											<li><a tabindex="-1" href="{% url 'my_comments:mycomments' %}">我的关注</a></li>
-											<li><a tabindex="-1" href="{% url 'my_browsing_history:mybrowsinghistory' %}">我的浏览</a></li>
-											<li><a tabindex="-1" href="{% url 'show_question:showquestion' %}">我的提问</a></li>
+											<li><a tabindex="-1" href="#">我的关注</a></li>
+											<li><a tabindex="-1" href="#">我的浏览</a></li>
+											<li><a tabindex="-1" href="#">我的提问</a></li>
 											<li><a tabindex="-1" href="#">我的打赏</a></li>
 										</ul>
 									</div>
@@ -101,12 +101,9 @@
 				<!-- 中部： main body -->
 				<div class="col-md-6" role="main">
 
-
-
-
 				    <!-- 问题和回答部分内容 -->
 				    <div class="row-fluid blog">
-					    <iframe src='{% url 'homepage1:homepageinner' %}' frameBorder="0" width="600" height="2400" scrolling="no"></iframe>
+					    <iframe src="inner_IAsked.html" frameBorder="0" width="600" height="2400" scrolling="no"></iframe>
 					</div>
 
 				</div> <!-- 中部： main body -->
@@ -119,23 +116,19 @@
 						
 					  	<div class="row-fluid">
 							<div class="line2 center">
-								<h5 class="standart-h3title"><span>最多评论的问题</span></h5>
+								<h5 class="standart-h3title"><span>Categories</span></h5>
 							</div>
 					        <ul class="l_tinynav2 widget-archive" id="nav2">
-                                {% for foo in categories %}
-                                    <li><a href="{% url 'my_comments:showquestion' foo.id %}" style="margin-left:0px;">{{ foo.question_name }}</a></li>
-                                {% endfor %}
-                                
-
-{#								<li><a href="# " style="margin-left:0px;">GRE</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">TOEFL</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">再要你命3000</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">计算机</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">脱发</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">霸王</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">杨幂</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">国家地理</a></li>#}
-{#								<li><a href="#" style="margin-left:0px;">可爱</a></li>				  #}
+								<li><a href="#" style="margin-left:0px;">特朗普</a></li>
+								<li><a href="# " style="margin-left:0px;">GRE</a></li>
+								<li><a href="#" style="margin-left:0px;">TOEFL</a></li>
+								<li><a href="#" style="margin-left:0px;">再要你命3000</a></li>
+								<li><a href="#" style="margin-left:0px;">计算机</a></li>
+								<li><a href="#" style="margin-left:0px;">脱发</a></li>
+								<li><a href="#" style="margin-left:0px;">霸王</a></li>
+								<li><a href="#" style="margin-left:0px;">杨幂</a></li>
+								<li><a href="#" style="margin-left:0px;">国家地理</a></li>
+								<li><a href="#" style="margin-left:0px;">可爱</a></li>				  
 							</ul>
 				        </div>
 
