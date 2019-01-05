@@ -1,10 +1,12 @@
 import datetime
 
 from django.shortcuts import render, redirect
+
+# Create your views here.
 from my_comments.models import *
 from my_comments.form import *
 from  log_in.models import *
-# Create your views here.
+from my_browsing_history.models import *
 def MyComments(request):
     if not request.session.has_key('userName'):
         return redirect('login')
@@ -64,6 +66,8 @@ def ShowQuestion(request,questionId):
                         form = CommentForm()
                         context.update(form=form)
                         commentList = aQuestion.comment_set.all()
+                        aHistory = history(history_date=datetime.datetime.now(),history_question_id=aQuestion, history_user_id=aUser)
+                        aHistory.save()
                         context.update(commentList=commentList)
                         return render(request, 'show_question/article_single.html', context)
                     except comment.DoesNotExist:

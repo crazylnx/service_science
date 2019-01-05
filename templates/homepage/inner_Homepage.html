@@ -35,7 +35,9 @@
             {{ form }}
             <div class="input-group-btn">
                 <button type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">搜索 <span class="button"></span></button>
-                <button type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">提问<span class="button"></span></button>
+                <button type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">提问<span class="button" onclick="function k() { sessionStorage.setItem('ask','1')
+
+                }"></span></button>
             </div><!-- /btn-group -->
         </form>
     </div><!-- /input-group -->
@@ -62,113 +64,7 @@
 				</div>
 			</div>
             {% endfor %}
-            
-
-{#			<!-- ############################## -->#}
-{#    		<!-- ######### ITEM 1 END ######### -->#}
-{#    		<!-- ############################## -->#}
-{#    		#}
-{#    		<!-- ############################## -->#}
-{#    		<!-- ########### ITEM 2 ########### -->#}
-{#    		<!-- ############################## -->#}
-{#			<div class="blog-post">#}
-{#			   	<div class="blog-item">#}
-{#					<span class="label label-info label-xl span2 center"><span class="date-blog">30</span> <br>January </span>#}
-{#				  	<div class="span10"><h2 class="standart-h3title"><a href="#">The standard Lorem Ipsum passage, used since the 1500s</a></h2>#}
-{#				  	</div>#}
-{#				    <p class="meta-blog clearfix">#}
-{#						<i class="icon-comment"></i>#}
-{#						<a href="#">3 Comments</a> | <i class="icon-share"></i>#}
-{#						<a href="#">39 Shares</a> | <i class="icon-user"></i> #}
-{#						<a href="#">Admin</a> | Tag: #}
-{#						<a href="#"><span class="label label-info">Snipp</span></a> #}
-{#					</p>#}
-{#					<div class="span8">#}
-{#                        <p class="cat-blog"></p>#}
-{#						<a href="#" title="" class="">Read more &rarr;</a>#}
-{#					</div>#}
-{#				</div>#}
-{#			</div>#}
-{#			<!-- ############################## -->#}
-{#    		<!-- ######### ITEM 2 END ######### -->#}
-{#    		<!-- ############################## -->#}
-{##}
-{#    		<!-- ############################## -->#}
-{#    		<!-- ########### ITEM 3 ########### -->#}
-{#    		<!-- ############################## -->#}
-{#			<div class="blog-post">#}
-{#			   	<div class="blog-item">#}
-{#					<span class="label label-info label-xl span2 center"><span class="date-blog">30</span> <br>January </span>#}
-{#				  	<div class="span10"><h2 class="standart-h3title"><a href="#">The standard Lorem Ipsum passage, used since the 1500s</a></h2>#}
-{#				  	</div>#}
-{#				    <p class="meta-blog clearfix">#}
-{#						<i class="icon-comment"></i>#}
-{#						<a href="#">3 Comments</a> | <i class="icon-share"></i>#}
-{#						<a href="#">39 Shares</a> | <i class="icon-user"></i> #}
-{#						<a href="#">Admin</a> | Tag: #}
-{#						<a href="#"><span class="label label-info">Snipp</span></a> #}
-{#					</p>#}
-{#					<div class="span8">#}
-{#						<p class="cat-blog"> </p>#}
-{#						<a href="#" title="" class="">Read more &rarr;</a>#}
-{#					</div>#}
-{#				</div>#}
-{#			</div>#}
-{#			<!-- ############################## -->#}
-{#    		<!-- ######### ITEM 3 END ######### -->#}
-{#    		<!-- ############################## -->#}
-{##}
-{#    		<!-- ############################## -->#}
-{#    		<!-- ########### ITEM 4 ########### -->#}
-{#    		<!-- ############################## -->#}
-{#			<div class="blog-post">#}
-{#			   	<div class="blog-item">#}
-{#					<span class="label label-info label-xl span2 center"><span class="date-blog">30</span> <br>January </span>#}
-{#				  	<div class="span10"><h2 class="standart-h3title"><a href="#">The standard Lorem Ipsum passage, used since the 1500s</a></h2>#}
-{#				  	</div>#}
-{#				    <p class="meta-blog clearfix">#}
-{#						<i class="icon-comment"></i>#}
-{#						<a href="#">3 Comments</a> | <i class="icon-share"></i>#}
-{#						<a href="#">39 Shares</a> | <i class="icon-user"></i> #}
-{#						<a href="#">Admin</a> | Tag: #}
-{#						<a href="#"><span class="label label-info">Snipp</span></a> #}
-{#					</p>#}
-{#					<div class="span8">#}
-{#                        <p class="cat-blog"></p>#}
-{#                        <a href="#" title="" class="">Read more &rarr;</a>#}
-{#					</div>#}
-{#				</div>#}
-{#			</div>#}
-{#			<!-- ############################## -->#}
-{#    		<!-- ######### ITEM 4 END ######### -->#}
-{#    		<!-- ############################## -->#}
-{##}
-{#    		<!-- ############################## -->#}
-{#    		<!-- ########### ITEM 5 ########### -->#}
-{#    		<!-- ############################## -->#}
-{#			<div class="blog-post">#}
-{#			   	<div class="blog-item">#}
-{#					<span class="label label-info label-xl span2 center"><span class="date-blog">30</span> <br>January </span>#}
-{#				  	<div class="span10"><h2 class="standart-h3title"><a href="#">The standard Lorem Ipsum passage, used since the 1500s</a></h2>#}
-{#				  	</div>#}
-{#				    <p class="meta-blog clearfix">#}
-{#						<i class="icon-comment"></i>#}
-{#						<a href="#">3 Comments</a> | <i class="icon-share"></i>#}
-{#						<a href="#">39 Shares</a> | <i class="icon-user"></i> #}
-{#						<a href="#">Admin</a> | Tag: #}
-{#						<a href="#"><span class="label label-info">Snipp</span></a> #}
-{#					</p>#}
-{#					<div class="span8">#}
-{#                        <p class="cat-blog"></p>#}
-{#                        <a href="#" title="" class="">Read more &rarr;</a>#}
-{#					</div>#}
-{#				</div>#}
-{#			</div>#}
-{#			<!-- ############################## -->#}
-{#    		<!-- ######### ITEM 6 END ######### -->#}
-{#    		<!-- ############################## -->#}
-{#    	</div>#}
-
+{#        <a href="{% url 'p' %}">#}
     	<section id="pagination">
 	        <h4>Standard pagination</h4>
 	        <div class="bs-docs-example">
@@ -193,5 +89,5 @@
 	        </div>
       </section>
     </div>
-	
+    </div>
 </body>

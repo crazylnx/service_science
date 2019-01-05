@@ -50,7 +50,6 @@ def HomepageInner(request):
         #    context.update(commentCount, commentCount)
         form = SearchForm()
         context.update(form=form)
-
         return render(request, 'homepage/inner_Homepage.html', context)
         # return HttpResponse("nnnn")
     except question.DoesNotExist:
