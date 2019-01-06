@@ -48,9 +48,8 @@
 							<a href="#">
 								<span class="glyphicon glyphicon-home">首页</span>
 								<span class="sr-only">(current)</span>
+                            </a>
 
-							</a>
-						<>
 						<li><a href="#"><span class="glyphicon glyphicon-shopping-cart">充值</span></a><>
 						<li><a href="#"><span class="glyphicon glyphicon-headphones">帮助</span></a><>
 					</ul>
@@ -72,31 +71,45 @@
             Form
           </div>
           <div class='panel-body'>
-            <form>
+
                 <fieldset>
 	                <legend>查看个人信息</legend>
 	                <div class='form-group'>
-	                  	<strong>头像<>
+                        <strong>头像<>
 	                  	<img class="img-circle" alt="用户头像" src="头像.jpg">
 	                </div>
 	                <div class='form-group'>
-	                	<strong>昵称<>
+                        <strong>昵称<>
 	                	<label class='control-label'>{{ foo.user_name }}</label>
 
 	                </div>
 	                <div class='form-group'>
-	                  	<strong>个性签名<>
+                        <strong>个性签名<>
 	                  	<label class='control-label'>{{ foo.signature }}</label>
 	                </div>
 	                <div class='form-group'>
-	                  	<strong>充值金额<>
-{#	                  	<label class='control-label'>{{ foo.user_money }}</label>#}
-	                  	<a class='btn' href="{% url 'modify_personal_info:Reward' foo.user_name 1 %}">充值一元</a>
-                        <a class='btn' href="{% url 'modify_personal_info:Reward' foo.user_name 5 %}">充值五元</a>
-                        <a class='btn' href="{% url 'modify_personal_info:Reward' foo.user_name 10 %}">充值十元</a>
+                        <strong>打赏金额<>
+	                  	<label class='control-label'>{{ foo.user_money }}</label>
+                        <form action="{% url 'modify_personal_info:Reward' %}" method="post">
+                            {% csrf_token %}
+                            <input type="radio" name="recharge" value=10 > 充值10元</input>
+                            <input type="radio" name="recharge" value=20 > 充值20元</input>
+                            <input type="radio" name="recharge" value=50 > 充值50元</input>
+                            <input type="hidden" name="takername" value={{ foo.user_name }}></input>
+                            <button type="submit">充值<tton>
+                            {% if messages %}
+                                <script>
+                                    {% for msg in messages %}
+                                        alert('{{ msg.message }}');
+                                    {% endfor %}
+                                </script>
+                            {% endif %}
+                        </form>
+
+
 	                </div>
 	                <div class='form-group'>
-	                	<strong>性别<>
+                        <strong>性别<>
 	                	<label class='control-label'>{{ foo.gender }}</label>
 	                </div>
 {#	                <div class='form-group'>#}
@@ -104,7 +117,7 @@
 {#	                	<label class='control-label'>国家+省/市+详细地址</label>#}
 {#	                </div>#}
                 </fieldset>
-            </form>
+
           </div>
         </div>
 		</div>

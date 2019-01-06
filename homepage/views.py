@@ -50,6 +50,7 @@ def HomepageInner(request):
         #    context.update(commentCount, commentCount)
         form = SearchForm()
         context.update(form=form)
+        context.update(display1=False)
         return render(request, 'homepage/inner_Homepage.html', context)
         # return HttpResponse("nnnn")
     except question.DoesNotExist:
@@ -59,7 +60,7 @@ def HomepageInner(request):
 
 def Search(request):
     context = {}
-    print("进入search")
+    # print("进入search")
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
@@ -68,6 +69,12 @@ def Search(request):
             context.update(questionlist=questionlist)
             form = SearchForm()
             context.update(form = form)
+            print(request.POST.get('hide'))
+            if request.POST.get('hide') == '1':
+                context.update(display1=True)
+            else:
+                context.update(display1=False)
+            print(context.get('display1'))
             return render(request, 'homepage/inner_Homepage.html', context)
     form = SearchForm()
     context.update(form=form)
