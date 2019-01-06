@@ -36,7 +36,7 @@ def homepage_view(request):
             return HttpResponseRedirect('login')
 def HomepageInner(request):
     try:
-        questionlist = question.objects.all()
+        questionlist = question.objects.order_by('-question_date')
         context = {}
         # for foo in questionlist:
         #     context.update(=foo.comment_set.count())
@@ -65,7 +65,7 @@ def Search(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            questionlist = question.objects.filter(question_name__icontains=data['KeyWord'])
+            questionlist = question.objects.filter(question_name__icontains=data['KeyWord']).order_by('-question_date')
             context.update(questionlist=questionlist)
             form = SearchForm()
             context.update(form = form)

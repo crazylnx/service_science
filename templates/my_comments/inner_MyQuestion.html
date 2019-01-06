@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<!-- Mirrored from www.sitediscount.ru/verso/components.html by HTTrack Website Copier/3.x [XR&CO'2010], Thu, 16 May 2013 16:35:18 GMT -->
+<head>
+<meta charset="utf-8">
+<title>Components | reaction HTML5 Responsive Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- Le styles -->
+<link href="../../static/assets/css/bootstrap.css" rel="stylesheet">
+<link href="../../static/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="../../static/assets/css/style.css" rel="stylesheet">
+<link href="../../static/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="../../static/assets/css/social.css" rel="stylesheet">
+<link href="../../static/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<!-- Le fav and touch icons -->
+<link rel="shortcut icon" href="../../static/assets/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../static/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../static/assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../static/assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="../../static/assets/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body>
+{#	<div class="input-group">#}
+{#        <form class="form-signin" action="{% url 'homepage1:search' %}" method="POST">#}
+{#            <input type="text" class="form-control" aria-label="输入提示">#}
+{#            {% csrf_token %}#}
+{#            {{ form }}#}
+{#            <div class="input-group-btn">#}
+{#                <button type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">搜索 <span class="button"></span></button>#}
+{#                <button type="submit" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">提问<span class="button" onclick="function k() { sessionStorage.setItem('ask','1')#}
+{##}
+{#                }"></span></button>#}
+{#            </div><!-- /btn-group -->#}
+{#        </form>#}
+{#    </div><!-- /input-group -->#}
+	<!-- 问题和回答部分内容 -->
+    <div class="row-fluid blog">
+    	<div>
+            {% for foo in  questionlist %}
+            <div class="blog-post">
+			   	<div class="blog-item">
+					<span class="label label-info label-xl span2 center"><span class="date-blog">{{ foo.date }}</span> <!--<br>January--> </span>
+				  	<div class="span10"><h2 class="standart-h3title"><a target="_parent" href="{% url 'my_comments:showquestion' foo.question_id %}#}">{{ foo.question_name }}</a></h2>
+				  	</div>
+					<div class="span8">
+                        <p class="cat-blog">{{ foo.question_content }}</p>
+						<a href="#" title="" class="">Read more &rarr;</a>
+					</div>
+				</div>
+			</div>
+            {% endfor %}
+    	<section id="pagination">
+	        <h4>Standard pagination</h4>
+	        <div class="bs-docs-example">
+	          	<div class="pagination">
+		            <ul>
+						<li><a href="#">«</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">»</a></li>
+		            </ul>
+	          	</div>
+	        </div>
+	        <h4>Pager</h4>
+	        <div class="bs-docs-example">
+	          	<ul class="pager">
+	            	<li><a href="#">Previous</a></li>
+	            	<li><a href="#">Next</a></li>
+	          	</ul>
+	        </div>
+      </section>
+    </div>
+    </div>
+</body>
