@@ -36,7 +36,7 @@ recharge.html 充值
 
 signup.html 注册
 
-
+AnswerQuestion.html 提问
 
 ## 现完成功能
 
@@ -59,5 +59,7 @@ signup.html 注册
 充值
 
 注册
+
+提问
 
 404
