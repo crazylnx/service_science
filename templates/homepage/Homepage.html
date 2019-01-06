@@ -76,8 +76,9 @@
 									<div class="bs-docs-example">
 										<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
 											<li>
-												<img src="头像.png" class="img-circle" alt="用户头像">
-												<a tabindex="-1" href="#">{{ username }}</a>
+												<img src="../{{ imagePath }}" class="img-circle" alt="用户头像">
+												<a tabindex="-1" href="#">{{ username }}</a><br>
+                                                <a tabindex="-1" href="{% url 'changeinfor' %}">个性化</a>
 											</li>
 											<li class="divider"></li>
 											<li><a tabindex="-1" href="#">关注</a></li>
@@ -145,25 +146,7 @@
 				          			<h5 class="standart-h3title"><span>Tags</span></h5>
 				  				</div>
 						  
-						  	<div class="span12">
-								<a href="#"><span class="label label-info">脱发</span></a> 
-								<a href="#"><span class="label label-info">不脱发</span></a> 
-								<a href="#"><span class="label label-info">我最可爱</span></a> 
-								<a href="#"><span class="label label-info">大作业</span></a>
-								<a href="#"><span class="label label-info">快写完</span></a> 
-								<a href="#"><span class="label label-info">假装有彩蛋</span></a> 
-								<a href="#"><span class="label label-info">lui了lui了</span></a> 
-								<a href="#"><span class="label label-info">我好菜啊</span></a> 
-								<a href="#"><span class="label label-info">我的offer呢</span></a> 
-								<a href="#"><span class="label label-info">我爱学习</span></a> 
-								<a href="#"><span class="label label-info">我的头发呢</span></a>
-								<a href="#"><span class="label label-info">满分</span></a>
-								<a href="#"><span class="label label-info">减肥</span></a> 
-								<a href="#"><span class="label label-info">背书</span></a> 
-								<a href="#"><span class="label label-info">写代码</span></a> 
-								<a href="#"><span class="label label-info">呵呵</span></a>
-							</div>
-						</div>
+{#						 #}
 
 
 				    </div>

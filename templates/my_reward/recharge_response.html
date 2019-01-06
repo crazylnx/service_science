@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正在返回</title>
+</head>
+<body>
+<script>
+    (function () {
+        var aUser ="{{ aUser }}";
+        window.opener.getdata(aUser);
+        window.close();
+    })()
+</script>
+</body>
+</html>

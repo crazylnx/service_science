@@ -71,100 +71,52 @@
             Form
           </div>
           <div class='panel-body'>
-            <form>
+            <form method="POST" action="{% url 'changeinfor' %}">
+                {% csrf_token %}
               <fieldset>
                 <legend>修改个人信息</legend>
                 <div class='form-group'>
-                  <label class='control-label'>昵称</label>
-                  <input class='form-control' placeholder='Enter username' type='text'>
-                </div>
-                <div class='form-group'>
-                  <label class='control-label'>设置密码</label>
-                  <input class='form-control' placeholder='Enter password' type='password'>
-                </div>
-                <div class='form-group'>
-                  <label class='control-label'>再次输入密码</label>
-                  <input class='form-control' placeholder='Enter password' type='password'>
-                </div>
-                <div class='form-group'>
                   <label class='control-label'>个性签名</label>
-                  <textarea class='form-control' rows='4'></textarea>
+                  <textarea class='form-control' name="signature" rows='4' placeholder="{{ aUser.signature }}">{{ aUser.signature }}</textarea>
                 </div>
                 <div class='form-group'>
                   <label class='control-label'>余额</label>
-                  <p><strong>￥</strong>显示余额</p>
-                  <a class='btn' href='../my_reward/recharge.html'>点击充值</a>
+                  <p><strong>{{ aUser.user_money }}￥</strong>显示余额</p>
+                  <a class='btn' id="recharge" onclick="recharge()">点击充值</a>
                 </div>
-                <div class='form-group'>
+                <div class='form-group'style=" margin:auto; width:100%; ">
+                    <label class='control-label'>你的头像</label>
+                    <img src="../{{ aUser.user_image }}">
                   <label class='control-label'>选择头像</label>
-                  <input type='file'>
+                    <div style=" width:32%;  float:left; margin-left:1%;">
+                        <img src="../static/img/photo/facebook.png"><br>
+                        <input type="radio" name="img" value="static/img/photo/facebook.png"">
+                    </div>
+                    <div style=" width:32%;   float:left; margin-left:1%;">
+                        <img src="../static/img/photo/instagram.png"><br>
+                        <input type="radio" name="img" value="static/img/photo/instagram.png">
+                    </div>
+                    <div style=" width:32%;  float:left; margin-left:1%;">
+                        <img src="../static/img/photo/path.png"><br>
+                        <input type="radio" name="img" value="static/img/photo/path.png">
+                    </div>
+
                 </div>
                 <div class='form-group'>
                   <label class='control-label'>性别</label>
-                  <div class='radio'>
-                    <input checked name='options_radio' type='radio' value='option1'>
+                  <div class='radio' >
+                    <input checked name='gender' type='radio' value='男'>
                     男
                     <br>
-                    <input checked name='options_radio' type='radio' value='option2'>
+                    <input checked name='gender' type='radio' value='女'>
                     女
                   </div>
                 </div>
-                <div class='form-group row'>
-                  	<div class='col-lg-3'>
-                    <!-- <label class='control-label'>国家</label> -->
-                    <!-- <input class='form-control' placeholder='国家' type='text'> -->
-	                   	<div class='form-group'>
-							<label class='control-label'>国家</label>
-							<select class='form-control'>
-							<option>中国</option>
-							<option>美国</option>
-							<option>英国</option>
-							<option>日本</option>
-							<option>法国</option>
-							</select>
-	                	</div>
-	                </div>
-	                <div class='col-lg-3'>
-	                    <!-- <label class='control-label'>省/市</label>
-	                    <input class='form-control' placeholder='省/市' type='text'> -->
-                   		<div class='form-group'>
-							<label class='control-label'>国家</label>
-							<select class='form-control'>
-							<option>北京</option>
-							<option>上海</option>
-							<option>广州</option>
-							<option>深圳</option>
-							<option>海南</option>
-							</select>
-	                	</div>
-	                </div>
-	                <div class='col-lg-6'>
-	                    <label class='control-label'>详细地址</label>
-	                    <input class='form-control' placeholder='详细地址' type='text'>
-	                </div>
-                </div>
               </fieldset>
- <!--              <fieldset>
-                <legend>Input Validation States</legend>
-                <div class='form-group has-warning'>
-                  <label class='control-label'>Input field with help</label>
-                  <input class='form-control' placeholder='.has-warning'>
-                  <p class='help-block'>Example block-level help text here.</p>
-                </div>
-                <div class='form-group has-error'>
-                  <label class='control-label'>Input field with help</label>
-                  <input class='form-control' placeholder='.has-error'>
-                  <p class='help-block'>Example block-level help text here.</p>
-                </div>
-                <div class='form-group has-success'>
-                  <label class='control-label'>Input field with help</label>
-                  <input class='form-control' placeholder='.has-success'>
-                  <p class='help-block'>Example block-level help text here.</p>
-                </div>
-              </fieldset> -->
+
               <div class='form-actions'>
                 <!-- <button class='btn btn-default' type='submit'>Submit</button> -->
-                <a class='btn' href='Homepage.html'>提交</a>
+                <button type="submit" >提交</button>
                 <a class='btn' href='#'>取消</a>
               </div>
             </form>
@@ -179,7 +131,14 @@
 	<a id="toTop" style="display: inline;" href="#">
 		<span id="toTopHover" style="opacity: 0;"></span>
 	</a>
-
+    <script>
+        function recharge() {
+            window.open("{% url 'my_reward:recharge' %}",'','status=1,width=600,height=300,toolbar=0,top=200,left=300,resizeable=no');
+        }
+        function getdata(data) {
+             window.location.reload();
+        }
+    </script>
 	<script src="../../static/assets/js/jquery.ui.totop.js" type="text/javascript"></script>
 	</body>
 </html>

@@ -18,12 +18,14 @@ from django.urls import path
 from django.conf.urls import include, url
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
     path('', include('log_in.urls')),
     path('', include('homepage.urls')),
     path('', include('my_comments.urls')),
     path('', include('my_browsing_history.urls')),
     path('', include('show_question.urls')),
+    path('', include('my_reward.urls')),
+    path('', include('modify_personal_info.urls')),
     # url(r'^administrator/', include('administrator.urls')),
     # url(r'^', include('homepage.urls')),
     # url(r'^log_in/', include('log_in.urls')),

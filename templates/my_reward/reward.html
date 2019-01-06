@@ -48,16 +48,17 @@
 							<a href="#">
 								<span class="glyphicon glyphicon-home">首页</span>
 								<span class="sr-only">(current)</span>
+
 							</a>
-						</li>
-						<li><a href="#"><span class="glyphicon glyphicon-shopping-cart">充值</span></a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-headphones">帮助</span></a></li>
+						<>
+						<li><a href="#"><span class="glyphicon glyphicon-shopping-cart">充值</span></a><>
+						<li><a href="#"><span class="glyphicon glyphicon-headphones">帮助</span></a><>
 					</ul>
 			        <form class="navbar-form navbar-left">
 			         	<div class="form-group">
 							<input type="text" class="form-control" placeholder="今天你脱发了吗？">
 			        	</div>
-			        	<button type="submit" class="btn btn-default">提问</button>
+			        	<button type="submit" class="btn btn-default">提问<tton>
 			        </form>
 			    </div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
@@ -75,28 +76,31 @@
                 <fieldset>
 	                <legend>查看个人信息</legend>
 	                <div class='form-group'>
-	                  	<strong>头像</strong>
+	                  	<strong>头像<>
 	                  	<img class="img-circle" alt="用户头像" src="头像.jpg">
 	                </div>
 	                <div class='form-group'>
-	                	<strong>昵称</strong>
+	                	<strong>昵称<>
 	                	<label class='control-label'>{{ foo.user_name }}</label>
+
 	                </div>
 	                <div class='form-group'>
-	                  	<strong>个性签名</strong>
+	                  	<strong>个性签名<>
 	                  	<label class='control-label'>{{ foo.signature }}</label>
 	                </div>
 	                <div class='form-group'>
-	                  	<strong>余额</strong>
-	                  	<label class='control-label'>{{ foo.user_money }}</label>
-	                  	<a class='btn' onclick="reward()" >打赏</a>
+	                  	<strong>充值金额<>
+{#	                  	<label class='control-label'>{{ foo.user_money }}</label>#}
+	                  	<a class='btn' href="{% url 'modify_personal_info:Reward' foo.user_name 1 %}">充值一元</a>
+                        <a class='btn' href="{% url 'modify_personal_info:Reward' foo.user_name 5 %}">充值五元</a>
+                        <a class='btn' href="{% url 'modify_personal_info:Reward' foo.user_name 10 %}">充值十元</a>
 	                </div>
 	                <div class='form-group'>
-	                	<strong>性别</strong>
+	                	<strong>性别<>
 	                	<label class='control-label'>{{ foo.gender }}</label>
 	                </div>
 {#	                <div class='form-group'>#}
-{#	                	<strong>地址</strong>#}
+{#	                	<strong>地址<>#}
 {#	                	<label class='control-label'>国家+省/市+详细地址</label>#}
 {#	                </div>#}
                 </fieldset>
@@ -112,14 +116,7 @@
 	<a id="toTop" style="display: inline;" href="#">
 		<span id="toTopHover" style="opacity: 0;"></span>
 	</a>
-    <script>
-        function reward() {
-            window.open("{% url 'my_reward:recharge' %}",'','status=1,width=600,height=300,toolbar=0,top=200,left=300,resizeable=no')
-        }
-        function getdata(data) {
-             window.location.reload();
-        }
-    </script>
+
 	<script src="../../static/assets/js/jquery.ui.totop.js" type="text/javascript"></script>
 	</body>
-</html>
+<ml>

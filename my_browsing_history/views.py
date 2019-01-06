@@ -24,7 +24,7 @@ def MyBrowsingHistoryInner(request):
     try:
 
         aUser = user.objects.get(user_name=username)
-        historylist = aUser.history_set.all()
+        historylist = aUser.history_set.order_by('-id')
         questionlist=[]
         for ahistory in historylist:
             question1 = ahistory.history_question_id
@@ -34,6 +34,7 @@ def MyBrowsingHistoryInner(request):
             a1.question_id=question1.pk
             questionlist.append(a1)
         context = {}
+        context.update(username=username)
         context.update(questionlist=questionlist)
         return render(request,'my_browsing_history/inner_IBrowsed.html',context)
     except user.DoesNotExist:

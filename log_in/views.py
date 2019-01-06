@@ -11,6 +11,7 @@ from log_in.models import *
 from log_in.forms import *
 from homepage.forms import SearchForm
 from homepage.models import *
+from log_in.models import user
 
 
 
@@ -42,7 +43,7 @@ def login(request):
                 request.session['userName'] = aUser.user_name
                 request.session.set_expiry(0)
                 #return HttpResponseRedirect('homepage/')
-                return render(request, 'homepage/Homepage.html', {'username': aUser.user_name})
+                return redirect('homepage1:homepage')
             except user.DoesNotExist:
                 form = LoginForm()
                 return render(request, 'log_in/login.html', {'form': form})
@@ -68,6 +69,29 @@ def register(request):
             newUser.save()
             return redirect('login')
         return render(request, 'log_in/signup.html', {'form':form})
+
+def ChangeInfo(request):
+    if not request.session.has_key('userName'):
+        return  redirect('login')
+    userName = request.session.get('userName')
+    print(userName)
+    if request.method == 'POST':
+        try:
+            aUser = user.objects.get(user_name=userName)
+            aUser.signature=request.POST.get('signature')
+            aUser.gender=request.POST.get('gender')
+            aUser.user_image=request.POST.get('img')
+            aUser.save()
+            return render(request, 'log_in/Change_Personal_Info.html', {"aUser": aUser})
+        except user.DoesNotExist:
+            return redirect('login')
+    else:
+        try:
+            aUser = user.objects.get(user_name=userName)
+            return render(request, 'log_in/Change_Personal_Info.html', {"aUser": aUser})
+        except user.DoesNotExist:
+            return redirect('login')
+
 
 
 

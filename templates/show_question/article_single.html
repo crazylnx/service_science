@@ -104,7 +104,7 @@
     			 {% for foo in  commentList %}
                   <li class="media">
                       <div class="media-body">
-                          <div class="media-heading comment-info"> Posted by <i class="fa-icon-user"></i> <a href="#">{{ foo.comment_user.user_name }}</a> <span>|</span> {{ foo.comment_date }} <span>|</span> <i class="fa-icon-reply"></i> <a href="#">Reply</a></div>
+                          <div class="media-heading comment-info"> Posted by <i class="fa-icon-user"></i> <a href="{% url 'modify_personal_info:PersonalView' foo.comment_user.user_name %}">{{ foo.comment_user.user_name }}</a> <span>|</span> {{ foo.comment_date }} <span>|</span> <i class="fa-icon-reply"></i> <a href="#">Reply</a></div>
                           <p>{{ foo.comment_content }}</p><p>
                       </div>
                   </li>
@@ -154,54 +154,54 @@
 	  
      
     </div>
-	<!-- END CONTENT SIDE -->
-	<!-- SIDEBAR-->
-    <div class="span4 side_bar">
-		
-            <div class="row-fluid">
-              <div class="line2 center">
-                <h5 class="standart-h3title"><span>Categories</span></h5>
-              </div>
-                  <ul class="l_tinynav2 widget-archive" id="nav2">
-                <li><a href="#" style="margin-left:0px;">特朗普</a></li>
-                <li><a href="# " style="margin-left:0px;">GRE</a></li>
-                <li><a href="#" style="margin-left:0px;">TOEFL</a></li>
-                <li><a href="#" style="margin-left:0px;">再要你命3000</a></li>
-                <li><a href="#" style="margin-left:0px;">计算机</a></li>
-                <li><a href="#" style="margin-left:0px;">脱发</a></li>
-                <li><a href="#" style="margin-left:0px;">霸王</a></li>
-                <li><a href="#" style="margin-left:0px;">杨幂</a></li>
-                <li><a href="#" style="margin-left:0px;">国家地理</a></li>
-                <li><a href="#" style="margin-left:0px;">可爱</a></li>          
-              </ul>
-                </div>
-
-            <div class="row-fluid">
-              <hr class="half" />
-                <div class="line2 center">
-                        <h5 class="standart-h3title"><span>Tags</span></h5>
-                  </div>
-              
-                <div class="span12">
-                <a href="#"><span class="label label-info">脱发</span></a> 
-                <a href="#"><span class="label label-info">不脱发</span></a> 
-                <a href="#"><span class="label label-info">我最可爱</span></a> 
-                <a href="#"><span class="label label-info">大作业</span></a>
-                <a href="#"><span class="label label-info">快写完</span></a> 
-                <a href="#"><span class="label label-info">假装有彩蛋</span></a> 
-                <a href="#"><span class="label label-info">lui了lui了</span></a> 
-                <a href="#"><span class="label label-info">我好菜啊</span></a> 
-                <a href="#"><span class="label label-info">我的offer呢</span></a> 
-                <a href="#"><span class="label label-info">我爱学习</span></a> 
-                <a href="#"><span class="label label-info">我的头发呢</span></a>
-                <a href="#"><span class="label label-info">满分</span></a>
-                <a href="#"><span class="label label-info">减肥</span></a> 
-                <a href="#"><span class="label label-info">背书</span></a> 
-                <a href="#"><span class="label label-info">写代码</span></a> 
-                <a href="#"><span class="label label-info">呵呵</span></a>
-              </div>
-            </div>
-    </div>
+{#	<!-- END CONTENT SIDE -->#}
+{#	<!-- SIDEBAR-->#}
+{#    <div class="span4 side_bar">#}
+{#		#}
+{#            <div class="row-fluid">#}
+{#              <div class="line2 center">#}
+{#                <h5 class="standart-h3title"><span>Categories</span></h5>#}
+{#              </div>#}
+{#                  <ul class="l_tinynav2 widget-archive" id="nav2">#}
+{#                <li><a href="#" style="margin-left:0px;">特朗普</a></li>#}
+{#                <li><a href="# " style="margin-left:0px;">GRE</a></li>#}
+{#                <li><a href="#" style="margin-left:0px;">TOEFL</a></li>#}
+{#                <li><a href="#" style="margin-left:0px;">再要你命3000</a></li>#}
+{#                <li><a href="#" style="margin-left:0px;">计算机</a></li>#}
+{#                <li><a href="#" style="margin-left:0px;">脱发</a></li>#}
+{#                <li><a href="#" style="margin-left:0px;">霸王</a></li>#}
+{#                <li><a href="#" style="margin-left:0px;">杨幂</a></li>#}
+{#                <li><a href="#" style="margin-left:0px;">国家地理</a></li>#}
+{#                <li><a href="#" style="margin-left:0px;">可爱</a></li>          #}
+{#              </ul>#}
+{#                </div>#}
+{##}
+{#            <div class="row-fluid">#}
+{#              <hr class="half" />#}
+{#                <div class="line2 center">#}
+{#                        <h5 class="standart-h3title"><span>Tags</span></h5>#}
+{#                  </div>#}
+{#              #}
+{#                <div class="span12">#}
+{#                <a href="#"><span class="label label-info">脱发</span></a> #}
+{#                <a href="#"><span class="label label-info">不脱发</span></a> #}
+{#                <a href="#"><span class="label label-info">我最可爱</span></a> #}
+{#                <a href="#"><span class="label label-info">大作业</span></a>#}
+{#                <a href="#"><span class="label label-info">快写完</span></a> #}
+{#                <a href="#"><span class="label label-info">假装有彩蛋</span></a> #}
+{#                <a href="#"><span class="label label-info">lui了lui了</span></a> #}
+{#                <a href="#"><span class="label label-info">我好菜啊</span></a> #}
+{#                <a href="#"><span class="label label-info">我的offer呢</span></a> #}
+{#                <a href="#"><span class="label label-info">我爱学习</span></a> #}
+{#                <a href="#"><span class="label label-info">我的头发呢</span></a>#}
+{#                <a href="#"><span class="label label-info">满分</span></a>#}
+{#                <a href="#"><span class="label label-info">减肥</span></a> #}
+{#                <a href="#"><span class="label label-info">背书</span></a> #}
+{#                <a href="#"><span class="label label-info">写代码</span></a> #}
+{#                <a href="#"><span class="label label-info">呵呵</span></a>#}
+{#              </div>#}
+{#            </div>#}
+{#    </div>#}
 	<!-- END SIDEBAR-->
   </div>
   <!-- END INNER ROW-FLUID -->

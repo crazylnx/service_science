@@ -23,14 +23,14 @@ def homepage_view(request):
                 print(questionRecommendList[0].question_name)
                 context = {}
                 context.update(categories=questionRecommendList)
-                context.update(imagePath=aUser.user_image)
+                context.update(imagePath=aUser.user_image.url)
+                context.update(username=aUser.user_name)
                 return render(request, 'homepage/Homepage.html', context)
             except question.DoesNotExist:
-
                 context = {}
                 context.update(categories='')
                 context.update(imagePath=aUser.user_image)
-                context.update(username=aUser.user_nickname)
+                context.update(username=aUser.user_name)
                 return render(request, 'homepage/Homepage.html', context)
         except user.DoesNotExist:
             return HttpResponseRedirect('login')

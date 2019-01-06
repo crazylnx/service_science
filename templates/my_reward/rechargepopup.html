@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>充值</title>
+</head>
+<body>
+<form action="{% url 'my_reward:recharge' %}" method="post">
+    {% csrf_token %}
+    <input type="radio" name="recharge" value=10 > 充值10元</input>
+    <input type="radio" name="recharge" value=20 > 充值20元</input>
+    <input type="radio" name="recharge" value=50 > 充值50元</input>
+    <button type="submit" onclick="return confirm('是否确定充值？')">充值</button>
+</form>
+
+</body>
+</html>
