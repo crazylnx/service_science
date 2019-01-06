@@ -65,7 +65,7 @@ def register(request):
             print(data['username'])
             newUser = user()
             newUser.user_name = data['username']
-            newUser.user_password = data['password1']
+            newUser.user_password = data['password2']
             newUser.save()
             return redirect('login')
         return render(request, 'log_in/signup.html', {'form':form})
