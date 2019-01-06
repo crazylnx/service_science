@@ -20,11 +20,15 @@ def homepage_view(request):
             aUser = user.objects.get(user_name=userName)
             try:
                 questionRecommendList = question.objects.annotate(num1=Count('comment')).order_by('-num1')
-                print(questionRecommendList[0].question_name)
+                # print(questionRecommendList[0].question_name)
                 context = {}
-                context.update(categories=questionRecommendList)
                 context.update(imagePath=aUser.user_image.url)
                 context.update(username=aUser.user_name)
+                context.update(categories=questionRecommendList)
+
+                commentcount = aUser.comment_set.count()
+                context.update(money=aUser.user_money)
+                context.update(commentcount=commentcount)
                 return render(request, 'homepage/Homepage.html', context)
             except question.DoesNotExist:
                 context = {}

@@ -11,7 +11,15 @@ def MyBrowsingHistory(request):
     elif request.method == 'POST':
         pass
     else:
-        return render(request, 'my_browsing_history/IBrowsed.html')
+        userName = request.session.get('userName')
+        context = {}
+        try:
+            aUser = user.objects.get(user_name=userName)
+            context.update(imagePath=aUser.user_image.url)
+            context.update(username=aUser.user_name)
+            return render(request, 'my_browsing_history/IBrowsed.html',context)
+        except:
+            return render(request, 'my_browsing_history/IBrowsed.html', context)
 class histroyshow(object):
     def __init__(self,date='',question_name='',question_id=0):
         self.date=date
