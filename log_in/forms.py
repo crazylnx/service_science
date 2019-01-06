@@ -1,11 +1,14 @@
+import base64
+
 from django import forms
 from log_in.models import *
+
 class LoginForm(forms.Form):
     username=forms.CharField(label='your username',max_length=20)
     password=forms.CharField(widget=forms.PasswordInput)
     def clean_password(self):
-        password = self.cleaned_data.get('password')
-        
+        getpassword = self.cleaned_data.get('password')
+        password = base64.b64encode(bytes(getpassword, encoding ="utf8"))
         return password
 class RegisterForm(forms.Form):
     username=forms.CharField(max_length=8,required=True,label='输入账号')
@@ -17,6 +20,7 @@ class RegisterForm(forms.Form):
         if password1 and password2 and password1 != password2:
             print('两次密码不一致')
             raise forms.ValidationError('两次密码不一致')
+        password2 = base64.b64encode(bytes(password2, encoding ="utf8"))
         return  password2
     def clean_username(self):
         username = self.cleaned_data.get('username')
