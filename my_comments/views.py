@@ -86,3 +86,65 @@ def ShowQuestion(request,questionId):
         except user.DoesNotExist:
             return redirect('login')
 
+def RaiseQuestion(request):
+
+    if not request.session.has_key('userName'):
+        return redirect('login')
+    aUsername = request.session.get('userName')
+    try:
+        aUser = user.objects.get(user_name=aUsername)
+        context = {}
+        if (request.method == 'POST'):
+            form = QuestionForm(request.POST)
+            if form.is_valid():
+                data = form.cleaned_data
+                aQuestion = question()
+                aQuestion.question_name=data['question']
+                aQuestion.question_content = data['detail']
+                aQuestion.question_date=datetime.datetime.now()
+                aQuestion.question_user_id=aUser
+                aQuestion.save()
+
+                return redirect('homepage1:homepageinner')
+        form = QuestionForm()
+        context.update(form=form)
+        return render(request, 'my_comments/RaiseQuestion.html', context)
+    except user.DoesNotExist:
+        return redirect('login')
+
+def MyQuestion(request):
+    if not request.session.has_key('userName'):
+        return redirect('login')
+    elif request.method == 'POST':
+        pass
+    else:
+        return render(request, 'my_comments/MyQuestion.html')
+class myquestionshow(object):
+    def __init__(self,date='',question_name='',question_content='',question_id=0):
+        self.date=date
+        self.question_name=question_name
+        self.question_content=question_content
+        self.question_id=question_id
+def MyQuestionInner(request):
+    if not request.session.has_key('userName'):
+        return redirect('login')
+    username = request.session.get('userName')
+    try:
+        aUser = user.objects.get(user_name=username)
+        questions = aUser.question_set.order_by('-question_date')
+        questionlist=[]
+        for aquestion in questions:
+            question1 = aquestion.pk
+            a1 = myquestionshow()
+            a1.date= aquestion.question_date
+            a1.question_name=aquestion.question_name
+            a1.question_content=aquestion.question_content
+            a1.question_id=question1
+            questionlist.append(a1)
+        context = {}
+        context.update(username=username)
+        context.update(questionlist=questionlist)
+        return render(request,'my_comments/inner_MyQuestion.html',context)
+    except user.DoesNotExist:
+        return redirect('login')
+
